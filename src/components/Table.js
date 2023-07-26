@@ -1,8 +1,9 @@
+
 const Table = ({ sat }) => {
-  const getStatus = (satellite) => {
-    return satellite.operational ? 'Active' : 'Inactive';
-  };
-  return (
+
+
+
+ return (
       <table>
        <thead>
         <tr>
@@ -12,14 +13,18 @@ const Table = ({ sat }) => {
           <th>Status</th>
         </tr>
         </thead>
-        <tbody>{sat.map((data) => (
-        <tr key={data.id}>
-          <td>data.name</td>
-          <td>data.type</td>
-          <td>data.launchDate</td>
-          <td>data.Status</td>
-        </tr>
-        ))};
+        <tbody>{sat.map((data,id) => {
+          return(<tr key ={id}>
+            <td>{data.name}</td>
+            <td>{data.type}</td>
+            <td>{data.launchDate}</td>
+            <td>{data.operational ? 'Active' : 'Inactive'}</td>
+  
+          </tr>
+
+          );
+        }
+        )};
         </tbody>
       </table>
   );
